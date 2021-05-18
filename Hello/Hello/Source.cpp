@@ -5,8 +5,11 @@ using namespace std;//cin/cout
 void main()
 {
 	setlocale(LC_ALL, "Russian");
-	cout << "Hello World!"; cout << "Привет Мир!";
-	cout << "Сам привет)";
+	cout << "\t\t\t\t\tHello \"World\"!\n"; cout << "Привет Мир!\n";
+	cout << "Сам привет)\n";
+	cout << "\n";	//Эти две строки кода приводят 
+	cout << endl;	//к одному и тому же результату
+	cout << "C:\\Windows\\System32\\drivers\\" << endl;
 }
 
 //Ctrl + F7 - Компиляция
