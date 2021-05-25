@@ -23,7 +23,10 @@ void main()
 	cout << Price << endl;	//Использование (чтение) переменной Price
 	int a;
 	int t;
-	double price_of_coffee;
+	double price_of_coffee;	//snake_case_style
+	double priceOfCoffee;	//CamelCaseStyle, PascalCaseStyle
+	int smallCammel;	//Маленький верблюд начинается с маленькой буквы
+	int BigCammel;		//Большой верблюд начинается с большой буквы
 	cout << "Сколько стоит чашка кофе: "; 
 	cin >> price_of_coffee;	//Инициализация вводом с клавиатуры
 	cout << price_of_coffee << endl;
