@@ -10,7 +10,9 @@ using namespace std;
 //#define ARITHMETICAL_OPERATORS
 //#define ASSIGNMENT_OPERATOR	//Оператор ПРИСВАИВАНИЯ =
 //#define INCREMENT_DECREMENT
-#define COMPOUND_ASSIGNMENTS
+//#define COMPOUND_ASSIGNMENTS
+//#define HOME_WORK
+#define COMPARISON_OPERATORS	//Операторы сравнения
 
 void main()
 {
@@ -90,5 +92,12 @@ Binary:+, -, *, /, %
 	------------------------
 	*/
 #endif // COMPOUND_ASSIGNMENTS
+
+#ifdef HOME_WORK
+	int i = 3;
+	i *= i++ + 1 + (++i += 2);
+	cout << i << endl;
+#endif
+
 
 }
