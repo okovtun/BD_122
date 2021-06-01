@@ -5,6 +5,9 @@ TOREAD:
 https://www.softelectro.ru/ieee754.html
 
 TODO:
+Дописать калькулятор.
+
+DONE:
 Что будет выведено на экран в следующих случаях
 //1.
 int i = 3;
