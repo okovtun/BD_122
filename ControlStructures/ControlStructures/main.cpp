@@ -1,8 +1,17 @@
 #include<iostream>
 using namespace std;
 
+using std::cin;
+using std::cout;
+using std::endl;
+
 //#define TEMPERATURE
 //#define TARGET
+//#define CALC_IF_CHAIN
+
+#define CONST_1 1
+#define CONST_2 2
+#define CONST_N 'N'
 
 void main()
 {
@@ -11,7 +20,7 @@ void main()
 #ifdef TEMPERATURE
 	int temperature;
 	cout << "Введите температуру воздуха: "; cin >> temperature;
-	if(temperature>70)
+	if (temperature > 70)
 	{
 		cout << "Вы на другой планете" << endl;
 	}
@@ -70,5 +79,43 @@ void main()
 	char s;		//Sign - знак операции
 	cout << "Введите простое ариметическое выражение: ";
 	cin >> a >> s >> b;
-	cout << a << " " << s << " " << b << endl;
+#ifdef CALC_IF_CHAIN
+	//cout << a << " " << s << " " << b << endl;
+	if (s == '+')
+	{
+		cout << a << " + " << b << " = " << a + b << endl;
+	}
+	else if (s == '-')
+	{
+		cout << a << " - " << b << " = " << a - b << endl;
+	}
+	else if (s == '*')
+	{
+		cout << a << " * " << b << " = " << a * b << endl;
+	}
+	else if (s == '/')
+	{
+		if (b != 0)cout << a << " / " << b << " = " << a / b << endl;
+		else cout << "Низя так делать!!!" << endl;
+	}
+	else
+	{
+		cout << "Error:NoOperation" << endl;
+	}
+#endif // CALC_IF_CHAIN
+
+
+
+	int var = 0;
+
+
+	switch (var)
+	{
+	case CONST_1: ...code1...; break;
+	case CONST_2: ...code2...; break;
+		//.....................;
+		//.....................;
+	case CONST_N: ...codeN...; break;
+	default: ...code...;
+	}
 }
