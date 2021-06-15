@@ -1,10 +1,10 @@
 https://github.com/okovtun/BD_122.git
 https://www.youtube.com/watch?v=dKTDtpYuCPA&list=PLeqyOOqxeiIPJFPkv6UtPmvC9oMjaKCuO&index=1
 
-TOREAD:
-https://www.softelectro.ru/ieee754.html
-
 TODO:
+https://github.com/okovtun/BV_011/blob/master/ControlStructures/Geometria/Task/Geometria1.txt
+
+DONE:
 1. Написать программу, которая вычисляет факториал числа, введенного с клавиатуры;
 2. Используя цикл for написать программу, которая, указанное число возводит в указанную степень;
 3. Вывести на экран таблицу ASCII-символов по 16 символов в строке;
@@ -49,6 +49,9 @@ int i = 3;
 i += i++ + 1 + ++i *= 2;
 cout << i << endl;
 ===============================================================
+
+TOREAD:
+https://www.softelectro.ru/ieee754.html
 
 DONE:
 Используя вывод на экран и Escape-последовательности
