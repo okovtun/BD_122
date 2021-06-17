@@ -2,6 +2,11 @@ https://github.com/okovtun/BD_122.git
 https://www.youtube.com/watch?v=dKTDtpYuCPA&list=PLeqyOOqxeiIPJFPkv6UtPmvC9oMjaKCuO&index=1
 
 TODO:
+1. Зарегистрироваться на github.com;
+2. https://github.com/okovtun/BV_011/blob/master/ControlStructures/Geometria/Task/ChessBoard.jpg;
+3. https://github.com/okovtun/BV_011/blob/master/ControlStructures/Geometria/Task/HardChess.jpg;
+
+DONE:
 https://github.com/okovtun/BV_011/blob/master/ControlStructures/Geometria/Task/Geometria1.txt
 
 DONE:

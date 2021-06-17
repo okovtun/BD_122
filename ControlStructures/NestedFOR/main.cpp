@@ -6,6 +6,8 @@ using std::endl;
 #define tab "\t"
 
 //#define MULTIPLICATION_TABLE
+//#define PYTHAGORUS_TABLE
+//#define ROMBUS
 
 void main()
 {
@@ -29,6 +31,7 @@ void main()
 	}
 #endif // MULTIPLICATION_TABLE
 
+#ifdef PYTHAGORUS_TABLE
 	for (int i = 1; i <= n; i++)
 	{
 		for (int j = 1; j <= n; j++)
@@ -36,6 +39,34 @@ void main()
 			if (i*j < 100)cout << " ";
 			if (i*j < 10)cout << " ";
 			cout << i * j << tab;
+		}
+		cout << endl;
+	}
+#endif // PYTHAGORUS_TABLE
+
+	//int n;
+	cout << "¬ведите размер фигуры: "; cin >> n;
+
+#ifdef ROMBUS
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = i; j < n; j++)cout << " "; cout << "/";
+		for (int j = 0; j < i * 2; j++)cout << " "; cout << "\\";
+		cout << endl;
+	}
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j <= i; j++)cout << " "; cout << "\\";
+		for (int j = 0; j < (n - 1 - i) * 2; j++)cout << " "; cout << "/";
+		cout << endl;
+	}
+#endif // ROMBUS
+
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < n; j++)
+		{
+			cout << "* ";
 		}
 		cout << endl;
 	}
