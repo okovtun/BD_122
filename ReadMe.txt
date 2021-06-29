@@ -1,10 +1,33 @@
 https://github.com/okovtun/BD_122.git
 https://www.youtube.com/watch?v=dKTDtpYuCPA&list=PLeqyOOqxeiIPJFPkv6UtPmvC9oMjaKCuO&index=1
 
+TheCherno:
+https://www.youtube.com/watch?v=18c3MTX0PK0&list=PLlrATfBNZ98dudnM48yfGUldqGD0S4FFb
+
+//////////////////////////////////////////////////////////////
+//////////////				Arrays			//////////////////
+//////////////////////////////////////////////////////////////
+https://www.youtube.com/watch?v=ENDaJi08jCU&list=PLlrATfBNZ98dudnM48yfGUldqGD0S4FFb&index=31
+https://drive.google.com/file/d/1UXYIbYzXBLsUxvNBRpsser9I39oKJihP/view?usp=sharing
+
+TODO:
+0. Для массива, введенного с клавиатуры найти сумму и среднее арифметическое;
+1. Найти в массиве минимальное и максимальное значение;
+2. Есть массив из десяти элементов, проинициализированный рядом 1, 2, 3, 4.....9, 10.
+   Необходимо выполнить циклический сдвиг массива массива влево.
+   На сколько элементов сдвинуть массив пользователь вводит с клавиатуры.
+   Например:
+	1	2	3	4	5	6	7	8	9	10	- исходный массив
+	4	5	6	7	8	9	10	1	2	3	- массив сдвинутый на 3 элемента влево
+
+//////////////////////////////////////////////////////////////
+//////////////		Control structures		//////////////////
+//////////////////////////////////////////////////////////////
+
 TOREAD:
 https://github.com/okovtun/BD_011/blob/master/NumericSystems.pdf
 
-TODO:
+DONE:
 1. Зарегистрироваться на github.com;
 2. https://github.com/okovtun/BV_011/blob/master/ControlStructures/Geometria/Task/ChessBoard.jpg;
 3. https://github.com/okovtun/BV_011/blob/master/ControlStructures/Geometria/Task/HardChess.jpg;
