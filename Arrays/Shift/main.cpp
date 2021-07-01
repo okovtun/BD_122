@@ -1,4 +1,5 @@
 #include<iostream>
+#include<Windows.h>
 using namespace std;
 
 #define tab "\t"
@@ -28,12 +29,13 @@ void main()
 			arr[i - 1] = arr[i];
 		}
 		arr[n - 1] = buffer;
+		Sleep(500);
+		system("CLS");
+		//Вывод сдвинутого массива:
+		for (int i = 0; i < n; i++)
+		{
+			cout << arr[i] << tab;
+		}
+		cout << endl;
 	}
-
-	//Вывод сдвинутого массива:
-	for (int i = 0; i < n; i++)
-	{
-		cout << arr[i] << tab;
-	}
-	cout << endl;
 }
