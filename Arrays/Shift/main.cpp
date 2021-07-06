@@ -19,6 +19,10 @@ void main()
 	int number_of_shifts;	//Количество сдвигов
 	cout << "Введите количество сдвигов: "; cin >> number_of_shifts;
 
+	char direction;
+	cout << "Введите направление сдвига (l - left, r - right): "; cin >> direction;
+	if (direction == 'r')number_of_shifts = n - number_of_shifts;
+
 	for (int i = 0; i < number_of_shifts; i++)
 	{
 		//Сдвиг массива влево на 1 элемент:
@@ -29,13 +33,13 @@ void main()
 			arr[i - 1] = arr[i];
 		}
 		arr[n - 1] = buffer;
-		Sleep(500);
-		system("CLS");
-		//Вывод сдвинутого массива:
-		for (int i = 0; i < n; i++)
-		{
-			cout << arr[i] << tab;
-		}
-		cout << endl;
+		/*Sleep(500);
+		system("CLS");*/
 	}
+	//Вывод сдвинутого массива:
+	for (int i = 0; i < n; i++)
+	{
+		cout << arr[i] << tab;
+	}
+	cout << endl;
 }
