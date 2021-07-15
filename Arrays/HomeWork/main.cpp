@@ -1,201 +1,179 @@
 #include<iostream>
 #include<conio.h>
+#include <Windows.h>
 using namespace std;
-#define Left 75
-#define Right 77
+
 void main()
 {
 	setlocale(LC_ALL, "Russian");
 	cout << "Для вывод меню программ нажмите на Enter: " << endl;
+
 	char program;
-	do {
-		setlocale(LC_ALL, "Russian");
-		int chislo = 0;
-		int ostatok = 0;
-		int sleduyshee_chislo = 0;
-		int coll = 0;
-		int mas[15];
-		const int cezar = 10;
-		int array[cezar] = { 1,2,3,4,5,6,7,8,9,10 };
+	do
+	{
+		const int n = 10;
+		int arr[n];
 		program = _getch();
 		switch (program)
 		{
 		case '1':
 			system("CLS");
-			cout << "Введите число колличества сдвигов массива влево: "; cin >> chislo;
-			cout << "Массив\n";
-			for (int i = 0; i < cezar; i++)
+			for (int i = 0; i < 10; )
 			{
-				cout << array[i] << "\t";
-			}
-			cout << endl;
-			for (int j = 0; j < chislo; j++)
-			{
-				int buffer = array[0];
-				for (int i = 1; i < cezar; ++i)
+				int proverka = 0;
+				int new_chislo = rand() % 10;
+				for (int j = 0; j < n; j++)
 				{
-					array[i - 1] = array[i];
+					int chislo = arr[j];
+					if (new_chislo == chislo)
+					{
+						proverka++;
+					}
 				}
-				array[cezar - 1] = buffer;
+				if (proverka == 0)
+				{
+					arr[i] = new_chislo;
+					i++;
+				}
 			}
-			cout << "Сдвинутый массив:\n";
-			for (int i = 0; i < cezar; i++)
+
+			for (int i = 0; i < n; i++)
 			{
-				cout << array[i] << "\t";
+				cout << arr[i] << "\t";
 			}
 			cout << endl;
-			cout << "Введите номер следющей программы или нажмите Enter, чтобы выйти в меню: " << endl;
+			cout << "Для вывод меню программ нажмите на Enter или нажмите на escape, чтобы завершить работу: ";
 			break;
 		case '2':
+
 			system("CLS");
-			cout << "Введите число колличества сдвигов массива вправо: "; cin >> chislo;
-			cout << "Массив:\n";
-			for (int i = 0; i < cezar; i++)
+			for (int i = 0; i < 10; i++)
 			{
-				cout << array[i] << "\t";
+				arr[i] = rand() % 10;
+				cout << arr[i] << "\t";
 			}
 			cout << endl;
-			for (int j = 0; j < chislo; j++)
+
+			int pov[n];
+			int collm[n];
+			for (int i = 0; i < n; i++)
 			{
-				int buffer = array[cezar - 1];//элемент который нужно преложить
-				for (int i = cezar - 2; i >= 0; --i)
+				system("CLS");
+				char work[n] = { ' ',' ',' ',' ',' ',' ',' ',' ',' ',' ' };
+				int coll = 0;
+				int proverka = 0;
+				for (int j = 0; j < n; j++)
 				{
-					array[i + 1] = array[i];
+					cout << arr[j] << "\t";
 				}
-				array[0] = buffer;
-			}
-			cout << endl;
-			cout << "Сдвинутый массив:\n";
-			for (int i = 0; i < cezar; i++)
-			{
-				cout << array[i] << "\t";
-			}
-			cout << endl;
-			cout << "Введите номер следющей программы или нажмите Enter, чтобы выйти в меню: " << endl;
-			break;
-
-
-		case'3':
-			system("CLS");
-			cout << "Введите число:"; cin >> chislo;
-			do {
-				ostatok = chislo % 2;
-				sleduyshee_chislo = chislo / 2;
-				chislo /= 2;
-				mas[coll] = ostatok;
-				coll++;
-			} while (sleduyshee_chislo != 0 && sleduyshee_chislo != 1);
-			mas[coll] = chislo;
-			coll++;
-			for (int i = coll - 1; i >= 0; --i)
-			{
-				cout << mas[i];
-			}
-			cout << endl;
-			cout << "Введите номер следющей программы или нажмите Enter, чтобы выйти в меню: " << endl;
-			break;
-		case '4':
-
-			system("CLS");
-			cout << "Введите число:"; cin >> chislo;
-			do {
-				ostatok = chislo % 16;
-				sleduyshee_chislo = chislo / 16;
-				chislo /= 16;
-				mas[coll] = ostatok;
-				coll++;
-			} while (sleduyshee_chislo >= 16);
-			mas[coll] = chislo;
-
-			for (int i = coll; i >= 0; --i)
-			{
-				switch (mas[i])
+				cout << endl;
+				for (int j = 0; j < n; j++)
 				{
-				case 10:cout << 'A'; break;
-				case 11:cout << 'B'; break;
-				case 12:cout << 'C'; break;
-				case 13:cout << 'D'; break;
-				case 14:cout << 'E'; break;
-				case 15:cout << 'F'; break;
-				case 16:cout << '10'; break;
-				case 17:cout << '11'; break;
-				case 18:cout << '12'; break;
-				case 19:cout << '13'; break;
-				case 20:cout << '14'; break;
-
-				default:cout << mas[i];
-					break;
-				}
-			}
-			cout << endl;
-			cout << "Введите номер следющей программы или нажмите Enter, чтобы выйти в меню: " << endl;
-			break;
-
-		case '5':
-			system("CLS");
-			char dvizh;
-			cout << "Чтобы перемещать элементы массива, нажмайте на стрелки ""\"Влево Впрва""\" или на 'A' и 'D' в английской кодировки:";
-			do {
-				dvizh = _getch();
-				switch (dvizh)
-				{
-
-				case'ф':case'a':case Left:
-					//system("CLS");
-					//cout << "Чтобы перемещать элементы массива, нажмайте на стрелки ""\"Влево Впрва""\" или на 'A' и 'D':";
-					//cout << endl;
-					for (int j = 0; j < 1; j++)
+					if (arr[j] == arr[i])
 					{
-						int buffer = array[0];
-						for (int i = 1; i < cezar; ++i)
-						{
-							array[i - 1] = array[i];
-						}
-						array[cezar - 1] = buffer;
+						coll++;
+						work[j] = '!';
 					}
-					for (int i = 0; i < cezar; i++)
+					if (pov[j] == arr[i])
 					{
-						cout << array[i] << "\t";
+						proverka++;
 					}
-					cout << endl;
-
-					break;
-				case'в':case'd':case Right:
-					//system("CLS");
-					//cout << "Чтобы перемещать элементы массива, нажмайте на стрелки ""\"Влево Впрва""\" или на 'A' и 'D':";
-					//cout << endl;
-					for (int j = 0; j < 1; j++)
-					{
-						int buffer = array[cezar - 1];//элемент который нужно преложить
-						for (int i = cezar - 2; i >= 0; --i)
-						{
-							array[i + 1] = array[i];
-						}
-						array[0] = buffer;
-					}
-
-					for (int i = 0; i < cezar; i++)
-					{
-						cout << array[i] << "\t";
-					}
-					cout << endl;
-
-					break;
 
 				}
-			} while (dvizh != 27);
-			cout << "Введите номер следющей программы или нажмите Enter, чтобы выйти в меню: " << endl;
+				if (coll > 0 && proverka == 0)
+				{
+					pov[i] = arr[i];
+					collm[i] = coll;
+					for (int j = 0; j < n; j++)
+					{
+						Sleep(400);
+						cout << work[j] << "\t";
+					}
+				}
+
+			}
+			cout << endl;
+			cout << "Значения массива и колличество их повторений: ";
+			cout << endl;
+			for (int i = 0; i < n; i++)
+			{
+				if (pov[i] != -858993460)
+					cout << pov[i] << " = ";
+				if (collm[i] != -858993460)
+					cout << collm[i] << "(coll)" << "\t";
+			}
+			cout << endl;
+			cout << "Для вывод меню программ нажмите на Enter или нажмите на escape, чтобы завершить работу: ";
+			break;
+		case '3':
+			system("CLS");
+			cout << "Проинициализируйте массив из 10 значений: ";
+			for (int i = 0; i < 10; i++)
+			{
+				cin >> arr[i];
+			}
+			cout << endl;
+
+
+			for (int i = 0; i < n; i++)
+			{
+				system("CLS");
+				char work[n] = { ' ',' ',' ',' ',' ',' ',' ',' ',' ',' ' };
+				int coll = 0;
+				int proverka = 0;
+				for (int j = 0; j < n; j++)
+				{
+					cout << arr[j] << "\t";
+				}
+				cout << endl;
+				for (int j = 0; j < n; j++)
+				{
+					if (arr[j] == arr[i])
+					{
+						coll++;
+						work[j] = '!';
+					}
+					if (pov[j] == arr[i])
+					{
+						proverka++;
+					}
+
+				}
+				if (coll > 0 && proverka == 0)
+				{
+					pov[i] = arr[i];
+					collm[i] = coll;
+					for (int j = 0; j < n; j++)
+					{
+						Sleep(400);
+						cout << work[j] << "\t";
+					}
+				}
+
+			}
+			cout << endl;
+			cout << "Значения массива и колличество их повторений: ";
+			cout << endl;
+			for (int i = 0; i < n; i++)
+			{
+				if (pov[i] != -858993460)
+					cout << pov[i] << " = ";
+				if (collm[i] != -858993460)
+					cout << collm[i] << "(coll)" << "\t";
+			}
+			cout << endl;
+			cout << "Для вывод меню программ нажмите на Enter или нажмите на escape, чтобы завершить работу: ";
 			break;
 		case 13:
 			system("CLS");
-			cout << "Программа №1 ""\"Сдвиг массива влево""\": " << endl;
-			cout << "Программа №2 ""\"Сдвиг массива вправо""\": " << endl;
-			cout << "Программа №3 ""\"Преобразователь из десятичного числа в двоичную систему счисления""\": " << endl;
-			cout << "Программа №4 ""\"Преобразователь из десятичного числа в шестнадцатеричную систему счисления""\": " << endl;
-			cout << "Программа №5 ""\"Сдвиг массива влево, или вправо, по выбору пользователя""\": " << endl;
+			cout << "Программа №1 ""\"Массив из десяти элементов заполненный УНИКАЛЬНЫМИ случайными числами в диапазоне от 0 до 10""\": " << endl;
+			cout << "Программа №2 ""\"Поиск повторяющихся значений массива и колличества их повторений""\": " << endl;
+			cout << "Программа №3 ""\"Поиск повторяющихся введённых значений массива и колличества их повторений""\": " << endl;
 			cout << "Введите номер программы: " << endl;
 			break;
-		default: if (program != 27) cout << "Для вывод меню программ нажмите на Enter: " << endl;
+		default:
+			system("CLS");
+			cout << "Для вывод меню программ нажмите на Enter или нажмите на escape, чтобы завершить работу: " << endl;
 			break;
 		}
 	} while (program != 27);
