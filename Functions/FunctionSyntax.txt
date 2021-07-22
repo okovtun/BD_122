@@ -1,0 +1,21 @@
+//Declaration of variable:	//Declaration - Объфвление, Variable - переменная
+					type name;
+
+//Declaration of array
+					type name[SIZE];
+
+//Declaration of function:
+type name(parameters)	//Заголовок функции - Function header
+{
+	//Тело функции - Function body
+	...
+	group-of-statements;
+	...
+}
+void - пустота
+return value;	//return - вернуть, value - значение
+return;	//так пишут return в void функциях
+
+identifier - name!!!
+
+parameters - список принимаемых параметров.
