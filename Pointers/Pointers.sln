@@ -9,6 +9,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Parameters", "Parameters\Pa
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "References", "References\References.vcxproj", "{4B9A1F6A-2927-4B25-80CC-3984449522CC}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DynamicArrays", "DynamicArrays\DynamicArrays.vcxproj", "{D3DB09A3-126B-4A16-9689-766307A334F8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -41,6 +43,14 @@ Global
 		{4B9A1F6A-2927-4B25-80CC-3984449522CC}.Release|x64.Build.0 = Release|x64
 		{4B9A1F6A-2927-4B25-80CC-3984449522CC}.Release|x86.ActiveCfg = Release|Win32
 		{4B9A1F6A-2927-4B25-80CC-3984449522CC}.Release|x86.Build.0 = Release|Win32
+		{D3DB09A3-126B-4A16-9689-766307A334F8}.Debug|x64.ActiveCfg = Debug|x64
+		{D3DB09A3-126B-4A16-9689-766307A334F8}.Debug|x64.Build.0 = Debug|x64
+		{D3DB09A3-126B-4A16-9689-766307A334F8}.Debug|x86.ActiveCfg = Debug|Win32
+		{D3DB09A3-126B-4A16-9689-766307A334F8}.Debug|x86.Build.0 = Debug|Win32
+		{D3DB09A3-126B-4A16-9689-766307A334F8}.Release|x64.ActiveCfg = Release|x64
+		{D3DB09A3-126B-4A16-9689-766307A334F8}.Release|x64.Build.0 = Release|x64
+		{D3DB09A3-126B-4A16-9689-766307A334F8}.Release|x86.ActiveCfg = Release|Win32
+		{D3DB09A3-126B-4A16-9689-766307A334F8}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
