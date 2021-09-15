@@ -1,7 +1,7 @@
 #include<iostream>
 using namespace std;
 
-void Exchange(int a, int b);
+void Exchange(int& a, int& b);
 
 void main()
 {
@@ -12,10 +12,10 @@ void main()
 	cout << a << "\t" << b << endl;
 }
 
-void Exchange(int a, int b)
+void Exchange(int& a, int& b)
 {
 	int buffer = a;
 	a = b;
 	b = buffer;
-	cout << a << "\t" << b << endl;
+	//cout << a << "\t" << b << endl;
 }
