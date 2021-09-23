@@ -2,7 +2,8 @@
 using namespace std;
 
 //#define POINTERS_BASICS
-#define POINTERS_AND_ARRAYS
+//#define POINTERS_AND_ARRAYS
+#define POINTER_2_POINTER
 
 void main()
 {
@@ -41,6 +42,9 @@ void main()
 	cout << endl;
 #endif // POINTERS_AND_ARRAYS
 
+	int a = 2;
+	int* pa = &a;
+	int** ppa = &pa;
 }
 
 /*
