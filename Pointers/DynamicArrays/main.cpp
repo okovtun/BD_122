@@ -3,7 +3,9 @@
 using namespace std;
 
 void FillRand(int arr[], const int n);
+void FillRand(int** arr, const int rows, const int cols);
 void Print(int arr[], const int n);
+void Print(int** arr, const int rows, const int cols);
 
 int* push_back(int arr[], int& n, int value);
 int* insert(int arr[], int& n, int value, int index);
@@ -44,8 +46,34 @@ void main()
 	int cols;	//Количество элементов строки
 	cout << "Введите кодичество строк: "; cin >> rows;
 	cout << "Введите кодичество элементов строки: "; cin >> cols;
+	//////////////////////////////////////////////////////////////////////////////////
+	//////////////		Объявление двумерного динамического массива		//////////////
+	//////////////////////////////////////////////////////////////////////////////////
+	//1) Создаем массив указателей:
 	int** arr = new int*[rows] {};
-	for(int i=0; i<)
+	//2) Создаем строки:
+	for (int i = 0; i < rows; i++)
+	{
+		arr[i] = new int[cols] {};
+	}
+
+	//////////////////////////////////////////////////////////////////////////////////
+	//////////////	  Использование двумерного динамического массива	//////////////
+	//////////////////////////////////////////////////////////////////////////////////
+
+	FillRand(arr, rows, cols);
+	Print(arr, rows, cols);
+
+	//////////////////////////////////////////////////////////////////////////////////
+	//////////////		Удавление двумерного динамического массива		//////////////
+	//////////////////////////////////////////////////////////////////////////////////
+	//1) Удаляем строки:
+	for (int i = 0; i < rows; i++)
+	{
+		delete[] arr[i];
+	}
+	//2) Удаляем массив указателей:
+	delete[] arr;
 }
 
 void FillRand(int arr[], const int n)
@@ -57,6 +85,16 @@ void FillRand(int arr[], const int n)
 		*(arr + i) = rand() % 100;
 	}
 }
+void FillRand(int** arr, const int rows, const int cols)
+{
+	for (int i = 0; i < rows; i++)
+	{
+		for (int j = 0; j < cols; j++)
+		{
+			arr[i][j] = rand() % 100;
+		}
+	}
+}
 void Print(int arr[], const int n)
 {
 	for (int i = 0; i < n; i++)
@@ -65,6 +103,17 @@ void Print(int arr[], const int n)
 		cout << arr[i] << "\t";
 	}
 	cout << endl;
+}
+void Print(int** arr, const int rows, const int cols)
+{
+	for (int i = 0; i < rows; i++)
+	{
+		for (int j = 0; j < cols; j++)
+		{
+			cout << arr[i][j] <<"\t";
+		}
+		cout << endl;
+	}
 }
 int* push_back(int arr[], int& n, int value)
 {
