@@ -2,13 +2,17 @@
 #include<iostream>
 using namespace std;
 
-void FillRand(int arr[], const int n);
-void FillRand(int** arr, const int rows, const int cols);
+void FillRand(int arr[], const int n, int minRand = 0, int maxRand = 100);
+void FillRand(int** arr, const int rows, const int cols, int minRand = 0, int maxRand = 100);
 void Print(int arr[], const int n);
 void Print(int** arr, const int rows, const int cols);
 
 int* push_back(int arr[], int& n, int value);
 int* insert(int arr[], int& n, int value, int index);
+
+int** push_row_back(int** arr, int& rows, const int cols);
+
+#define delimiter "\n------------------------------------------------\n"
 
 //#define DYNAMIC_MEMORY_1
 #define DYNAMIC_MEMORY_2
@@ -63,6 +67,10 @@ void main()
 
 	FillRand(arr, rows, cols);
 	Print(arr, rows, cols);
+	cout << delimiter << endl;
+	arr = push_row_back(arr, rows, cols);
+	FillRand(arr[rows - 1], cols, 200, 1000);
+	Print(arr, rows, cols);
 
 	//////////////////////////////////////////////////////////////////////////////////
 	//////////////		Удавление двумерного динамического массива		//////////////
@@ -76,22 +84,22 @@ void main()
 	delete[] arr;
 }
 
-void FillRand(int arr[], const int n)
+void FillRand(int arr[], const int n, int minRand, int maxRand)
 {
 
 	for (int i = 0; i < n; i++)
 	{
 		//Используя арифметику указателей и оператор разыменования:
-		*(arr + i) = rand() % 100;
+		*(arr + i) = rand() % (maxRand - minRand) + minRand;
 	}
 }
-void FillRand(int** arr, const int rows, const int cols)
+void FillRand(int** arr, const int rows, const int cols, int minRand, int maxRand)
 {
 	for (int i = 0; i < rows; i++)
 	{
 		for (int j = 0; j < cols; j++)
 		{
-			arr[i][j] = rand() % 100;
+			arr[i][j] = rand() % (maxRand - minRand) + minRand;
 		}
 	}
 }
@@ -110,7 +118,7 @@ void Print(int** arr, const int rows, const int cols)
 	{
 		for (int j = 0; j < cols; j++)
 		{
-			cout << arr[i][j] <<"\t";
+			cout << arr[i][j] << "\t";
 		}
 		cout << endl;
 	}
@@ -145,5 +153,25 @@ int* insert(int arr[], int& n, int value, int index)
 	delete[] arr;
 	buffer[index] = value;
 	n++;
+	return buffer;
+}
+
+int** push_row_back(int** arr, int& rows, const int cols)
+{
+	//Переопределяем массив указателей:
+	//1) Создаем буферный массив указателей, размером на 1 элемент больше:
+	int** buffer = new int*[rows + 1]{};
+	//2) Копируем адреса строк из исходного массива указателей, в буферный:
+	for (int i = 0; i < rows; i++)
+	{
+		buffer[i] = arr[i];
+	}
+	//3) Удаляем исходный массив указателей:
+	delete[] arr;
+	//4) Создаем новую строку, и добавляем ее адрес в конец массива указателей:
+	buffer[rows] = new int[cols] {};
+	//5) После того, как в массив добавилась строка, количество его строк увеличилось на 1:
+	rows++;
+	//6) Возвращаем новый массив на место вызова:
 	return buffer;
 }
