@@ -11,6 +11,7 @@ int* push_back(int arr[], int& n, int value);
 int* insert(int arr[], int& n, int value, int index);
 
 int** push_row_back(int** arr, int& rows, const int cols);
+int** push_row_front(int** arr, int& rows, const int cols);
 
 #define delimiter "\n------------------------------------------------\n"
 
