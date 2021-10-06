@@ -12,6 +12,10 @@ int* insert(int arr[], int& n, int value, int index);
 
 int** push_row_back(int** arr, int& rows, const int cols);
 int** push_row_front(int** arr, int& rows, const int cols);
+int** pop_row_back(int** arr, int& rows, const int cols);
+
+void  push_col_back(int** arr, const int rows, int& cols);
+void  pop_col_back(int** arr, const int rows, int& cols);
 
 #define delimiter "\n------------------------------------------------\n"
 
@@ -69,10 +73,19 @@ void main()
 	FillRand(arr, rows, cols);
 	Print(arr, rows, cols);
 	cout << delimiter << endl;
+	cout << "Добавление строки в конец:\n";
 	arr = push_row_back(arr, rows, cols);
 	FillRand(arr[rows - 1], cols, 200, 1000);
 	Print(arr, rows, cols);
-
+	cout << "Удавление строки с конца:\n";
+	arr = pop_row_back(arr, rows, cols);
+	Print(arr, rows, cols);
+	cout << "Добавление столбца в конец:\n";
+	push_col_back(arr, rows, cols);
+	Print(arr, rows, cols);
+	cout << "Удавление столбца с конца:\n";
+	pop_col_back(arr, rows, cols);
+	Print(arr, rows, cols);
 	//////////////////////////////////////////////////////////////////////////////////
 	//////////////		Удавление двумерного динамического массива		//////////////
 	//////////////////////////////////////////////////////////////////////////////////
@@ -175,4 +188,36 @@ int** push_row_back(int** arr, int& rows, const int cols)
 	rows++;
 	//6) Возвращаем новый массив на место вызова:
 	return buffer;
+}
+int** pop_row_back(int** arr, int& rows, const int cols)
+{
+	int** buffer = new int*[--rows]{};
+	for (int i = 0; i < rows; i++)
+		buffer[i] = arr[i];
+	delete[] arr[rows];	//Удаляем строку из памяти
+	delete[] arr;
+	return buffer;
+}
+
+void  push_col_back(int** arr, const int rows, int& cols)
+{
+	for (int i = 0; i < rows; i++)
+	{
+		int* buffer = new int[cols + 1]{};
+		for (int j = 0; j < cols; j++)buffer[j] = arr[i][j];
+		delete[] arr[i];
+		arr[i] = buffer;
+	}
+	cols++;
+}
+void  pop_col_back(int** arr, const int rows, int& cols)
+{
+	for (int i = 0; i < rows; i++)
+	{
+		int* buffer = new int[cols - 1];
+		for (int j = 0; j < cols - 1; j++)buffer[j] = arr[i][j];
+		delete[] arr[i];
+		arr[i] = buffer;
+	}
+	cols--;
 }
