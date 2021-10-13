@@ -13,7 +13,7 @@ void Print(int** arr, const int rows, const int cols);
 int* push_back(int arr[], int& n, int value);
 int* insert(int arr[], int& n, int value, int index);
 
-int** push_row_back(int** arr, int& rows, const int cols);
+void push_row_back(int**& arr, int& rows, const int cols);
 int** push_row_front(int** arr, int& rows, const int cols);
 int** pop_row_back(int** arr, int& rows, const int cols);
 
@@ -69,11 +69,11 @@ void main()
 	Print(arr, rows, cols);
 	cout << delimiter << endl;
 	cout << "Добавление строки в конец:\n";
-	arr = push_row_back(arr, rows, cols);
+	push_row_back(arr, rows, cols);
 	FillRand(arr[rows - 1], cols, 200, 1000);
 	Print(arr, rows, cols);
 	cout << "Удавление строки с конца:\n";
-	arr = pop_row_back(arr, rows, cols);
+	pop_row_back(arr, rows, cols);
 	Print(arr, rows, cols);
 	cout << "Добавление столбца в конец:\n";
 	push_col_back(arr, rows, cols);
@@ -185,7 +185,7 @@ int* insert(int arr[], int& n, int value, int index)
 	return buffer;
 }
 
-int** push_row_back(int** arr, int& rows, const int cols)
+int** push_row_back(int**& arr, int& rows, const int cols)
 {
 	//Переопределяем массив указателей:
 	//1) Создаем буферный массив указателей, размером на 1 элемент больше:
@@ -201,8 +201,10 @@ int** push_row_back(int** arr, int& rows, const int cols)
 	buffer[rows] = new int[cols] {};
 	//5) После того, как в массив добавилась строка, количество его строк увеличилось на 1:
 	rows++;
+	arr = buffer;
 	//6) Возвращаем новый массив на место вызова:
-	return buffer;
+	//return buffer;
+	return arr;
 }
 int** pop_row_back(int** arr, int& rows, const int cols)
 {
