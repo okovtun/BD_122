@@ -17,6 +17,7 @@ template<typename T>void Print(T** arr, const int rows, const int cols);
 
 template<typename T>T* push_back(T arr[], int& n, T value);
 template<typename T>T* insert(T arr[], int& n, T value, int index);
+template<typename T>T* pop_back(T arr[], int& n);
 
 template<typename T>T** push_row_back(T** arr, int& rows, const int cols);
 template<typename T>T** push_row_front(T** arr, int& rows, const int cols);
@@ -201,7 +202,7 @@ template<typename T>void Print(T** arr, const int rows, const int cols)
 		cout << endl;
 	}
 }
-template<typename T>T* push_back(T arr[], int& n, int value)
+template<typename T>T* push_back(T arr[], int& n, T value)
 {
 	//1) Создаем буферный массив нужного размера:
 	T* buffer = new T[n + 1]{};
@@ -233,9 +234,20 @@ template<typename T>T* insert(T arr[], int& n, T value, int index)
 	n++;
 	return buffer;
 }
+template<typename T>T* pop_back(T arr[], int& n)
+{
+	T* buffer = new T[--n]{};
+	for (int i = 0; i < n; i++)
+	{
+		buffer[i] = arr[i];
+	}
+	delete[] arr;
+	return buffer;
+}
 
 template<typename T>T** push_row_back(T** arr, int& rows, const int cols)
 {
+#ifdef FULL_CODE
 	//Переопределяем массив указателей:
 	//1) Создаем буферный массив указателей, размером на 1 элемент больше:
 	T** buffer = new T*[rows + 1]{};
@@ -247,30 +259,39 @@ template<typename T>T** push_row_back(T** arr, int& rows, const int cols)
 	//3) Удаляем исходный массив указателей:
 	delete[] arr;
 	//4) Создаем новую строку, и добавляем ее адрес в конец массива указателей:
-	buffer[rows] = new T[cols] {};
+	buffer[rows] = new T[cols]{};
 	//5) После того, как в массив добавилась строка, количество его строк увеличилось на 1:
 	rows++;
 	//6) Возвращаем новый массив на место вызова:
 	return buffer;
+#endif // FULL_CODE
+	return push_back(arr, rows, new T[cols]{});
 }
 template<typename T>T** pop_row_back(T** arr, int& rows, const int cols)
 {
+#ifdef FULL_CODE
 	T** buffer = new T*[--rows]{};
 	for (int i = 0; i < rows; i++)
 		buffer[i] = arr[i];
 	delete[] arr[rows];	//Удаляем строку из памяти
 	delete[] arr;
 	return buffer;
+#endif // FULL_CODE
+
+	delete[] arr[rows - 1];		//Удаляем последнюю строку из памяти
+	return pop_back(arr, rows);	//Возвращаем переопределенный массив указателей
 }
 
 template<typename T>void  push_col_back(T** arr, const int rows, int& cols)
 {
 	for (int i = 0; i < rows; i++)
 	{
-		T* buffer = new T[cols + 1]{};
+		/*T* buffer = new T[cols + 1]{};
 		for (int j = 0; j < cols; j++)buffer[j] = arr[i][j];
 		delete[] arr[i];
-		arr[i] = buffer;
+		arr[i] = buffer;*/
+		arr[i] = push_back(arr[i], cols, T());
+		cols--;
 	}
 	cols++;
 }
@@ -278,10 +299,12 @@ template<typename T>void  pop_col_back(T** arr, const int rows, int& cols)
 {
 	for (int i = 0; i < rows; i++)
 	{
-		T* buffer = new T[cols - 1];
+		/*T* buffer = new T[cols - 1];
 		for (int j = 0; j < cols - 1; j++)buffer[j] = arr[i][j];
 		delete[] arr[i];
-		arr[i] = buffer;
+		arr[i] = buffer;*/
+		arr[i] = pop_back(arr[i], cols);
+		cols++;
 	}
 	cols--;
 }
