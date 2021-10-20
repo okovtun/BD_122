@@ -9,6 +9,12 @@ https://www.youtube.com/watch?v=18c3MTX0PK0&list=PLlrATfBNZ98dudnM48yfGUldqGD0S4
 //////////////////////////////////////////////////////////////
 
 TODO:
+1. Доделать оптимизацию;
+2. Собрать *.lib из проекта Functions\Arrays
+https://www.youtube.com/watch?v=H4s55GgAg0I&list=PLlrATfBNZ98dudnM48yfGUldqGD0S4FFb&index=7
+
+
+TODO:
 1. В ветке DynamicTemplated сделать все функции шаблонными, кроме FillRand
    и проверить их работу на типах double и char
 2. От ветки master создать ветку DynamicSeparated и вынести в ней функции
