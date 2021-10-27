@@ -1,0 +1,354 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>ios::eof - C++ Reference</title>
+<link rel="canonical" href="https://www.cplusplus.com/reference/ios/ios/eof/">
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+<link rel="stylesheet" type="text/css" href="/v322/main.css">
+<script src="/v322/main.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="I_top">
+<div id="I_header">
+<div id="I_logo"><a href="/" title="cplusplus.com"><div></div></a></div>
+<div id="I_search">
+<form id="search" action="/search.do" method="get">
+Search: <input name="q" size="20" class="txt"> <input type="submit" value="Go" class="btn">
+</form>
+</div>
+<div id="I_bar">
+<ul>
+<li><a href="/reference/">Reference</a></li>
+<li><a href="/reference/ios/">&lt;ios&gt;</a></li>
+<li><a href="/reference/ios/ios/">ios</a></li>
+<li class="here">eof</li>
+</ul>
+</div>
+<div id="I_user" class="C_LoginBox"><span title="ajax"></span></div>
+</div>
+</div>
+<div id="I_mid">
+<div id="I_wrap">
+<div id="I_minheight"></div>
+<div id="I_main">
+<div class="C_support">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1444228343479937" crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px"
+     data-ad-client="ca-pub-1444228343479937"
+     data-ad-slot="9701143201"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div><div id="I_content">
+<div class="C_doc">
+<div id="I_type">public member function</div>
+<div id="I_file">&lt;ios&gt; &lt;iostream&gt;</div>
+<h1><span class="namespace" title="namespace std">std::</span><a href="/reference/ios/ios/">ios</a>::eof</h1>
+<div class="C_prototype"><pre>bool eof() const;</pre></div><div id="I_description">Check whether eofbit is set</div>
+<section id="description">
+Returns <code>true</code> if the <samp>eofbit</samp> <i>error state flag</i> is set for the stream.<br>
+<br>
+This flag is set by all standard input operations when the End-of-File is reached in the sequence associated with the stream.<br>
+<br>
+Note that the value returned by this function depends on the last operation performed on the stream (and not on the next).<br>
+<br>
+Operations that attempt to read at the <i>End-of-File</i> fail, and thus both the <samp>eofbit</samp> and the <samp>failbit</samp> end up set. This function can be used to check whether the failure is due to reaching the <i>End-of-File</i> or to some other reason.<br>
+</section>
+<br>
+<section id="parameters">
+<h3>Parameters</h3>
+none<br>
+</section>
+<br>
+<section id="return">
+<h3>Return Value</h3>
+<code>true</code> if the stream's <samp>eofbit</samp> <i>error state flag</i> is set (which signals that the End-of-File has been reached by the last input operation).<br>
+<code>false</code> otherwise. <br>
+</section>
+<br>
+<section id="example">
+<h3>Example</h3>
+<div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br></code></pre></td>
+<td class="source"><pre><code><cite>// ios::eof example</cite>
+<dfn>#include &lt;iostream&gt;     </dfn><cite>// std::cout</cite>
+<dfn>#include &lt;fstream&gt;      </dfn><cite>// std::ifstream</cite>
+
+<var>int</var> main () {
+
+  std::ifstream is(<kbd>"example.txt"</kbd>);   <cite>// open file</cite>
+
+  <var>char</var> c;
+  <var>while</var> (is.get(c))                  <cite>// loop getting single characters</cite>
+    std::cout &lt;&lt; c;
+
+  <var>if</var> (is.eof())                      <cite>// check for EOF</cite>
+    std::cout &lt;&lt; <kbd>"[EoF reached]\n"</kbd>;
+  <var>else</var>
+    std::cout &lt;&lt; <kbd>"[error reading]\n"</kbd>;
+
+  is.close();                        <cite>// close file</cite>
+
+  <var>return</var> 0;
+}</code></pre></td><td class="C_btnholder"></td></tr></table></div>
+<br>
+</section>
+<br>
+<section id="access">
+<h3>Data races</h3>
+Accesses the stream object.<br>
+Concurrent access to the same stream object may cause data races.<br>
+</section>
+<br>
+<section id="exceptions">
+<h3>Exception safety</h3>
+<b>Strong guarantee:</b> if an exception is thrown, there are no changes in the stream.<br>
+</section>
+<br>
+<section id="see">
+<h3>See also</h3>
+<dl class="links"><dt><a href= "/reference/ios/ios/good/"><b>ios::good</b></a></dt><dd>Check whether state of stream is good <span class="typ">(public member function)</span></dd></dl><dl class="links"><dt><a href= "/reference/ios/ios/fail/"><b>ios::fail</b></a></dt><dd>Check whether either failbit or badbit is set <span class="typ">(public member function)</span></dd></dl><dl class="links"><dt><a href= "/reference/ios/ios/bad/"><b>ios::bad</b></a></dt><dd>Check whether badbit is set <span class="typ">(public member function)</span></dd></dl><dl class="links"><dt><a href= "/reference/ios/ios/rdstate/"><b>ios::rdstate</b></a></dt><dd>Get error state flags <span class="typ">(public member function)</span></dd></dl><dl class="links"><dt><a href= "/reference/ios/ios/clear/"><b>ios::clear</b></a></dt><dd>Set error state flags <span class="typ">(public member function)</span></dd></dl>
+</section></div><div id="CH_bb"></div></div>
+</div>
+<div id="I_nav">
+<div class="sect root">
+<h3><b><a href="/">C++</a></b></h3>
+<ul>
+<li class="folder info"><a href="/info/">Information</a></li>
+<li class="folder doc"><a href="/doc/">Tutorials</a></li>
+<li class="folder selected reference"><a href="/reference/">Reference</a></li>
+<li class="folder articles"><a href="/articles/">Articles</a></li>
+<li class="folder forum"><a href="/forum/">Forum</a></li>
+</ul>
+</div>
+<div class="C_BoxLabels C_BoxSort sect" id="reference_box">
+<h3><b><a href="/reference/">Reference</a></b></h3>
+<ul>
+<li class="C_Collapsable collapsed"><h4><a href="/reference/clibrary/">C library:</a></h4><ul>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="/reference/cassert/"><span>&lt;cassert&gt; (assert.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="/reference/cctype/"><span>&lt;cctype&gt; (ctype.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="/reference/cerrno/"><span>&lt;cerrno&gt; (errno.h)</span></a></li>
+<li class="c99 cpp11 folder"><a href="/reference/cfenv/"><span>&lt;cfenv&gt; (fenv.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="/reference/cfloat/"><span>&lt;cfloat&gt; (float.h)</span></a></li>
+<li class="c99 cpp11 folder"><a href="/reference/cinttypes/"><span>&lt;cinttypes&gt; (inttypes.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="/reference/ciso646/"><span>&lt;ciso646&gt; (iso646.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="/reference/climits/"><span>&lt;climits&gt; (limits.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="/reference/clocale/"><span>&lt;clocale&gt; (locale.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="/reference/cmath/"><span>&lt;cmath&gt; (math.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="/reference/csetjmp/"><span>&lt;csetjmp&gt; (setjmp.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="/reference/csignal/"><span>&lt;csignal&gt; (signal.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="/reference/cstdarg/"><span>&lt;cstdarg&gt; (stdarg.h)</span></a></li>
+<li class="cpp11 folder"><a href="/reference/cstdbool/"><span>&lt;cstdbool&gt; (stdbool.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="/reference/cstddef/"><span>&lt;cstddef&gt; (stddef.h)</span></a></li>
+<li class="c99 cpp11 folder"><a href="/reference/cstdint/"><span>&lt;cstdint&gt; (stdint.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="/reference/cstdio/"><span>&lt;cstdio&gt; (stdio.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="/reference/cstdlib/"><span>&lt;cstdlib&gt; (stdlib.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="/reference/cstring/"><span>&lt;cstring&gt; (string.h)</span></a></li>
+<li class="c99 cpp11 folder"><a href="/reference/ctgmath/"><span>&lt;ctgmath&gt; (tgmath.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="/reference/ctime/"><span>&lt;ctime&gt; (time.h)</span></a></li>
+<li class="cpp11 folder"><a href="/reference/cuchar/"><span>&lt;cuchar&gt; (uchar.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="/reference/cwchar/"><span>&lt;cwchar&gt; (wchar.h)</span></a></li>
+<li class="c90 c99 arm cpp98 cpp11 folder"><a href="/reference/cwctype/"><span>&lt;cwctype&gt; (wctype.h)</span></a></li>
+</ul></li>
+<li class="C_Collapsable collapsed"><h4><a href="/reference/stl/">Containers:</a></h4><ul>
+<li class="cpp11 folder"><a href="/reference/array/"><span>&lt;array&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="/reference/deque/"><span>&lt;deque&gt;</span></a></li>
+<li class="cpp11 folder"><a href="/reference/forward_list/"><span>&lt;forward_list&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="/reference/list/"><span>&lt;list&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="/reference/map/"><span>&lt;map&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="/reference/queue/"><span>&lt;queue&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="/reference/set/"><span>&lt;set&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="/reference/stack/"><span>&lt;stack&gt;</span></a></li>
+<li class="cpp11 folder"><a href="/reference/unordered_map/"><span>&lt;unordered_map&gt;</span></a></li>
+<li class="cpp11 folder"><a href="/reference/unordered_set/"><span>&lt;unordered_set&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="/reference/vector/"><span>&lt;vector&gt;</span></a></li>
+</ul></li>
+<li class="C_Collapsable"><h4><a href="/reference/iolibrary/">Input/Output:</a></h4><ul>
+<li class="cpp98 cpp11 folder"><a href="/reference/fstream/"><span>&lt;fstream&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="/reference/iomanip/"><span>&lt;iomanip&gt;</span></a></li>
+<li class="cpp98 cpp11 selected folder"><a href="/reference/ios/"><span>&lt;ios&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="/reference/iosfwd/"><span>&lt;iosfwd&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="/reference/iostream/"><span>&lt;iostream&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="/reference/istream/"><span>&lt;istream&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="/reference/ostream/"><span>&lt;ostream&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="/reference/sstream/"><span>&lt;sstream&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="/reference/streambuf/"><span>&lt;streambuf&gt;</span></a></li>
+</ul></li>
+<li class="C_Collapsable collapsed"><h4><a href="/reference/multithreading/">Multi-threading:</a></h4><ul>
+<li class="cpp11 folder"><a href="/reference/atomic/"><span>&lt;atomic&gt;</span></a></li>
+<li class="cpp11 folder"><a href="/reference/condition_variable/"><span>&lt;condition_variable&gt;</span></a></li>
+<li class="cpp11 folder"><a href="/reference/future/"><span>&lt;future&gt;</span></a></li>
+<li class="cpp11 folder"><a href="/reference/mutex/"><span>&lt;mutex&gt;</span></a></li>
+<li class="cpp11 folder"><a href="/reference/thread/"><span>&lt;thread&gt;</span></a></li>
+</ul></li>
+<li class="C_Collapsable collapsed"><h4><a href="/reference/std/">Other:</a></h4><ul>
+<li class="cpp98 cpp11 folder"><a href="/reference/algorithm/"><span>&lt;algorithm&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="/reference/bitset/"><span>&lt;bitset&gt;</span></a></li>
+<li class="cpp11 folder"><a href="/reference/chrono/"><span>&lt;chrono&gt;</span></a></li>
+<li class="cpp11 folder"><a href="/reference/codecvt/"><span>&lt;codecvt&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="/reference/complex/"><span>&lt;complex&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="/reference/exception/"><span>&lt;exception&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="/reference/functional/"><span>&lt;functional&gt;</span></a></li>
+<li class="cpp11 folder"><a href="/reference/initializer_list/"><span>&lt;initializer_list&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="/reference/iterator/"><span>&lt;iterator&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="/reference/limits/"><span>&lt;limits&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="/reference/locale/"><span>&lt;locale&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="/reference/memory/"><span>&lt;memory&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="/reference/new/"><span>&lt;new&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="/reference/numeric/"><span>&lt;numeric&gt;</span></a></li>
+<li class="cpp11 folder"><a href="/reference/random/"><span>&lt;random&gt;</span></a></li>
+<li class="cpp11 folder"><a href="/reference/ratio/"><span>&lt;ratio&gt;</span></a></li>
+<li class="cpp11 folder"><a href="/reference/regex/"><span>&lt;regex&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="/reference/stdexcept/"><span>&lt;stdexcept&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="/reference/string/"><span>&lt;string&gt;</span></a></li>
+<li class="cpp11 folder"><a href="/reference/system_error/"><span>&lt;system_error&gt;</span></a></li>
+<li class="cpp11 folder"><a href="/reference/tuple/"><span>&lt;tuple&gt;</span></a></li>
+<li class="cpp11 folder"><a href="/reference/typeindex/"><span>&lt;typeindex&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="/reference/typeinfo/"><span>&lt;typeinfo&gt;</span></a></li>
+<li class="cpp11 folder"><a href="/reference/type_traits/"><span>&lt;type_traits&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="/reference/utility/"><span>&lt;utility&gt;</span></a></li>
+<li class="cpp98 cpp11 folder"><a href="/reference/valarray/"><span>&lt;valarray&gt;</span></a></li>
+</ul></li>
+</ul>
+</div>
+<div class="C_BoxLabels C_BoxSort sect cpp98 cpp11" id="ios_box">
+<h3><b><a href="/reference/ios/">&lt;ios&gt;</a></b></h3>
+<ul>
+<li class="C_Collapsable"><h4>types:</h4><ul>
+<li class="cpp98 cpp11 folder"><a href="/reference/ios/basic_ios/"><span>basic_ios</span></a></li>
+<li class="arm cpp98 cpp11"><a href="/reference/ios/fpos/"><span>fpos</span></a></li>
+<li class="arm cpp98 cpp11 selected folder"><a href="/reference/ios/ios/"><span>ios</span></a></li>
+<li class="arm cpp98 cpp11 folder"><a href="/reference/ios/ios_base/"><span>ios_base</span></a></li>
+<li class="cpp11 folder"><a href="/reference/ios/io_errc/"><span>io_errc</span></a></li>
+<li class="arm cpp98 cpp11"><a href="/reference/ios/streamoff/"><span>streamoff</span></a></li>
+<li class="arm cpp98 cpp11"><a href="/reference/ios/streampos/"><span>streampos</span></a></li>
+<li class="arm cpp98 cpp11"><a href="/reference/ios/streamsize/"><span>streamsize</span></a></li>
+<li class="cpp98 cpp11"><a href="/reference/ios/wios/"><span>wios</span></a></li>
+<li class="cpp98 cpp11"><a href="/reference/ios/wstreampos/"><span>wstreampos</span></a></li>
+</ul></li>
+<li class="C_Collapsable"><h4>manipulators:</h4><ul>
+<li class="arm cpp98 cpp11"><a href="/reference/ios/boolalpha/"><span>boolalpha</span></a></li>
+<li class="arm cpp98 cpp11"><a href="/reference/ios/dec/"><span>dec</span></a></li>
+<li class="cpp11"><a href="/reference/ios/defaultfloat/"><span>defaultfloat</span></a></li>
+<li class="arm cpp98 cpp11"><a href="/reference/ios/fixed/"><span>fixed</span></a></li>
+<li class="arm cpp98 cpp11"><a href="/reference/ios/hex/"><span>hex</span></a></li>
+<li class="cpp11"><a href="/reference/ios/hexfloat/"><span>hexfloat</span></a></li>
+<li class="arm cpp98 cpp11"><a href="/reference/ios/internal/"><span>internal</span></a></li>
+<li class="arm cpp98 cpp11"><a href="/reference/ios/left/"><span>left</span></a></li>
+<li class="arm cpp98 cpp11"><a href="/reference/ios/noboolalpha/"><span>noboolalpha</span></a></li>
+<li class="arm cpp98 cpp11"><a href="/reference/ios/noshowbase/"><span>noshowbase</span></a></li>
+<li class="arm cpp98 cpp11"><a href="/reference/ios/noshowpoint/"><span>noshowpoint</span></a></li>
+<li class="arm cpp98 cpp11"><a href="/reference/ios/noshowpos/"><span>noshowpos</span></a></li>
+<li class="arm cpp98 cpp11"><a href="/reference/ios/noskipws/"><span>noskipws</span></a></li>
+<li class="arm cpp98 cpp11"><a href="/reference/ios/nounitbuf/"><span>nounitbuf</span></a></li>
+<li class="arm cpp98 cpp11"><a href="/reference/ios/nouppercase/"><span>nouppercase</span></a></li>
+<li class="arm cpp98 cpp11"><a href="/reference/ios/oct/"><span>oct</span></a></li>
+<li class="arm cpp98 cpp11"><a href="/reference/ios/right/"><span>right</span></a></li>
+<li class="arm cpp98 cpp11"><a href="/reference/ios/scientific/"><span>scientific</span></a></li>
+<li class="arm cpp98 cpp11"><a href="/reference/ios/showbase/"><span>showbase</span></a></li>
+<li class="arm cpp98 cpp11"><a href="/reference/ios/showpoint/"><span>showpoint</span></a></li>
+<li class="arm cpp98 cpp11"><a href="/reference/ios/showpos/"><span>showpos</span></a></li>
+<li class="arm cpp98 cpp11"><a href="/reference/ios/skipws/"><span>skipws</span></a></li>
+<li class="arm cpp98 cpp11"><a href="/reference/ios/unitbuf/"><span>unitbuf</span></a></li>
+<li class="arm cpp98 cpp11"><a href="/reference/ios/uppercase/"><span>uppercase</span></a></li>
+</ul></li>
+<li class="C_Collapsable"><h4>other functions:</h4><ul>
+<li class="cpp11"><a href="/reference/ios/iostream_category/"><span>iostream_category</span></a></li>
+</ul></li>
+</ul>
+</div>
+<div class="C_BoxLabels C_BoxSort sect arm cpp98 cpp11" id="ios_box">
+<h3><b><a href="/reference/ios/ios/">ios</a></b></h3>
+<ul>
+<li class="arm cpp98 cpp11"><a href="/reference/ios/ios/ios/"><span>ios::ios</span></a></li>
+<li class="arm cpp98 cpp11"><a href="/reference/ios/ios/~ios/"><span>ios::~ios</span></a></li>
+<li class="C_Collapsable"><h4>public members:</h4><ul>
+<li class="arm cpp98 cpp11"><a href="/reference/ios/ios/bad/"><span>ios::bad</span></a></li>
+<li class="arm cpp98 cpp11"><a href="/reference/ios/ios/clear/"><span>ios::clear</span></a></li>
+<li class="arm cpp98 cpp11"><a href="/reference/ios/ios/copyfmt/"><span>ios::copyfmt</span></a></li>
+<li class="arm cpp98 cpp11 selected"><a href="/reference/ios/ios/eof/"><span>ios::eof</span></a></li>
+<li class="arm cpp98 cpp11"><a href="/reference/ios/ios/exceptions/"><span>ios::exceptions</span></a></li>
+<li class="arm cpp98 cpp11"><a href="/reference/ios/ios/fail/"><span>ios::fail</span></a></li>
+<li class="arm cpp98 cpp11"><a href="/reference/ios/ios/fill/"><span>ios::fill</span></a></li>
+<li class="arm cpp98 cpp11"><a href="/reference/ios/ios/good/"><span>ios::good</span></a></li>
+<li class="arm cpp98 cpp11"><a href="/reference/ios/ios/imbue/"><span>ios::imbue</span></a></li>
+<li class="arm cpp98 cpp11"><a href="/reference/ios/ios/narrow/"><span>ios::narrow</span></a></li>
+<li class="arm cpp98 cpp11"><a href="/reference/ios/ios/operator_bool/"><span>ios::operator bool</span></a></li>
+<li class="arm cpp98 cpp11"><a href="/reference/ios/ios/operator_not/"><span>ios::operator!</span></a></li>
+<li class="arm cpp98 cpp11"><a href="/reference/ios/ios/rdbuf/"><span>ios::rdbuf</span></a></li>
+<li class="arm cpp98 cpp11"><a href="/reference/ios/ios/rdstate/"><span>ios::rdstate</span></a></li>
+<li class="arm cpp98 cpp11"><a href="/reference/ios/ios/setstate/"><span>ios::setstate</span></a></li>
+<li class="arm cpp98 cpp11"><a href="/reference/ios/ios/tie/"><span>ios::tie</span></a></li>
+<li class="arm cpp98 cpp11"><a href="/reference/ios/ios/widen/"><span>ios::widen</span></a></li>
+</ul></li>
+<li class="C_Collapsable"><h4>protected members:</h4><ul>
+<li class="arm cpp98 cpp11"><a href="/reference/ios/ios/init/"><span>ios::init</span></a></li>
+<li class="cpp11"><a href="/reference/ios/ios/move/"><span>ios::move</span></a></li>
+<li class="cpp11"><a href="/reference/ios/ios/set_rdbuf/"><span>ios::set_rdbuf</span></a></li>
+<li class="cpp11"><a href="/reference/ios/ios/swap/"><span>ios::swap</span></a></li>
+</ul></li>
+</ul>
+</div>
+<div id="I_subnav"></div>
+<p>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1444228343479937" crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:inline-block;width:234px;height:60px"
+     data-ad-client="ca-pub-1444228343479937"
+     data-ad-slot="3817422056"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+<div id="I_midclear"></div>
+</div>
+</div>
+<div id="I_bottom">
+<div id="I_footer">
+	<a href="/">Home page</a> | <a href="/privacy.do">Privacy policy</a><br>&copy; cplusplus.com, 2000-2021 - All rights reserved - <i>v3.2</i><br><a href="/contact.do?referrer=www.cplusplus.com%2Freference%2Fios%2Fios%2Feof%2F">Spotted an error? contact us</a>
+</div>
+</div>
+
+<script type="text/javascript">
+<!--
+ onSession ( function(us) {
+		el=document.getElementById('CH_bb'); el.innerHTML='';
+		if (us.auth(4096)) {
+			
+			el.appendChild(btn('Edit Page','Edit Page','edit','/reference/edit.cgi?a=ios+ios+eof'));
+			el.appendChild(btn('Delete Page','Delete Page','delete','javascript:docdel()'));
+		}
+	});
+	function docdel() { if (confirm('WARNING: You are about to delete this page. Confirm?')) window.location='/reference/delete.cgi?a=ios+ios+eof'; }
+	ready();
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-521783-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+//-->
+</script>
+
+<script>
+(function(){
+  // mini cookie-consent code (c) Juan Soulie, 2016
+  var s ='consent=cookie';
+  var e = document.createElement('div');
+  e.innerHTML = '<div style="background:#eed;padding:10px;margin:0;text-align:center;border-bottom:1px solid #446"><span style="color:#210;font-weight:bold">This website uses cookies. By continuing, you give permission to deploy cookies, as detailed in our <a href="/privacy.do">privacy policy</a>.</span> <span style="margin-left:10px;border-radius:5px;padding:1px 10px;background:#bcd;border:1px solid #789;cursor:pointer">ok</span></div>';
+  if (document.cookie.indexOf(s)!==-1) return;
+  var b = document.getElementsByTagName('body')[0];
+  b.insertBefore(e,b.firstChild);
+  var x = function() { document.cookie = s+'; path=/'; e.parentNode.removeChild(e); };
+  e.addEventListener('click',x);
+  document.addEventListener('scroll',x);
+})();
+</script>
+
+</body>
+</html>
