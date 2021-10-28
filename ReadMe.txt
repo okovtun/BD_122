@@ -14,6 +14,17 @@ TODO:
 3. Если пользователь забыл ввести расширение файла *.txt, программа должна его добавить;
 4. Из фала "201 RAW.txt" сделать файл "201.dhcpd";
 
+5. Написать функции 
+	bool is_mac_address(char str[]);	//Проверяет, является ли строка MAC-адресом 
+	bool is_ip_address(char str[]);		//Проверяет, является ли строка IP-адресом 
+6. Задать рабочий каталог для программы;
+
+TOREAD:
+http://cplusplus.com/reference/cstring/
+http://cplusplus.com/reference/cstring/strcat/
+http://cplusplus.com/reference/cstring/strrchr/
+http://cplusplus.com/reference/cstring/strcmp/
+
 //////////////////////////////////////////////////////////////
 //////////////	   NULL Terminated Lines	//////////////////
 //////////////////////////////////////////////////////////////
