@@ -29,6 +29,9 @@ http://cplusplus.com/reference/cstring/strcmp/
 //////////////	   NULL Terminated Lines	//////////////////
 //////////////////////////////////////////////////////////////
 
+http://cplusplus.com/reference/cctype/
+http://cplusplus.com/reference/cstring/
+
 TODO:
 В проект NULLTerminatedLines добавить функции:
 void to_upper(char str[]);		//Переводит строку в верхний регистр
