@@ -29,6 +29,7 @@ http://cplusplus.com/reference/cstring/strcmp/
 //////////////	   NULL Terminated Lines	//////////////////
 //////////////////////////////////////////////////////////////
 
+https://www.boost.org/doc/libs/1_77_0/doc/html/string_algo.html
 http://cplusplus.com/reference/cctype/
 http://cplusplus.com/reference/cstring/
 
